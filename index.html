@@ -1627,6 +1627,7 @@ body.high-contrast .perfil-chip.active{background:#000;border-color:#000}
       <p class="sec-lbl">Veja no seu imóvel</p>
       <h2 class="sec-h">Entre com o gov.br e veja a sua carteira</h2>
       <p class="sec-p">Veja como fica para o Seu Raimundo, um produtor de exemplo. Você entra com a conta gov.br, vê os dados do imóvel e descobre os benefícios a que tem direito.</p>
+      <span id="api-badge" style="display:none;align-items:center;gap:6px;margin-top:10px;background:#e3f5e9;color:#168821;border:1px solid #bfe6cb;border-radius:20px;padding:5px 14px;font-size:.8rem;font-weight:700"><i class="bi bi-broadcast"></i> Dados ao vivo da API</span>
     </div>
 
     <div class="govflow" id="govflow">
@@ -1664,7 +1665,7 @@ body.high-contrast .perfil-chip.active{background:#000;border-color:#000}
             <input id="gov-senha" type="password" value="senhademonstracao" readonly>
           </div>
           <span class="gov-link">Esqueci minha senha</span>
-          <button class="gov-btn" onclick="govStep(3)"><i class="bi bi-person-badge-fill"></i> Entrar</button>
+          <button class="gov-btn" onclick="govEntrar()"><i class="bi bi-person-badge-fill"></i> Entrar</button>
           <button class="gov-btn-ghost" onclick="govStep(1)">Voltar</button>
         </div>
         <p class="gov-demo"><i class="bi bi-info-circle-fill"></i>Demonstração com dados fictícios. A senha acima é apenas ilustrativa.</p>
@@ -1681,18 +1682,18 @@ body.high-contrast .perfil-chip.active{background:#000;border-color:#000}
           <h3>Olá, Raimundo!</h3>
           <p class="gov-sub">Estes são os dados do seu imóvel no Cadastro Ambiental Rural.</p>
           <div class="gov-imovel-head">
-            <div><strong>Sítio Boa Esperança</strong><span>Acaiaca, Minas Gerais</span></div>
-            <span class="gov-status ok"><i class="bi bi-check-circle-fill"></i> Cadastro ativo</span>
+            <div><strong id="gi-nome">Sítio Boa Esperança</strong><span id="gi-mun">Acaiaca, Minas Gerais</span></div>
+            <span class="gov-status ok" id="gi-status"><i class="bi bi-check-circle-fill"></i> Cadastro ativo</span>
           </div>
           <div class="gov-data-grid">
-            <div class="gov-data-card"><div class="gov-dl">Área total</div><div class="gov-dv">48 <small>hectares</small></div></div>
-            <div class="gov-data-card"><div class="gov-dl">Tamanho</div><div class="gov-dv">2,4 <small>módulos fiscais (pequeno)</small></div></div>
-            <div class="gov-data-card"><div class="gov-dl">Bioma</div><div class="gov-dv">Mata Atlântica</div></div>
-            <div class="gov-data-card"><div class="gov-dl">Reserva Legal exigida</div><div class="gov-dv">20% <small>cerca de 9,6 hectares</small></div></div>
-            <div class="gov-data-card"><div class="gov-dl">Mata nativa preservada</div><div class="gov-dv">18 <small>hectares</small></div></div>
-            <div class="gov-data-card"><div class="gov-dl">Nº do cadastro</div><div class="gov-dv" style="font-size:.8rem">MG-3100401-A1B2.C3D4.E5F6</div></div>
+            <div class="gov-data-card"><div class="gov-dl">Área total</div><div class="gov-dv" id="gi-area">48 <small>hectares</small></div></div>
+            <div class="gov-data-card"><div class="gov-dl">Tamanho</div><div class="gov-dv" id="gi-mod">2,4 <small>módulos fiscais (pequeno)</small></div></div>
+            <div class="gov-data-card"><div class="gov-dl">Bioma</div><div class="gov-dv" id="gi-bioma">Mata Atlântica</div></div>
+            <div class="gov-data-card"><div class="gov-dl">Reserva Legal exigida</div><div class="gov-dv" id="gi-rl">20% <small>cerca de 9,6 hectares</small></div></div>
+            <div class="gov-data-card"><div class="gov-dl">Mata nativa preservada</div><div class="gov-dv" id="gi-mata">18 <small>hectares</small></div></div>
+            <div class="gov-data-card"><div class="gov-dl">Nº do cadastro</div><div class="gov-dv" id="gi-car" style="font-size:.8rem">MG-3100401-A1B2.C3D4.E5F6</div></div>
           </div>
-          <div class="gov-highlight"><i class="bi bi-stars" style="margin-right:6px"></i>Você preserva 18 hectares de mata nativa, cerca de 8 a mais do que a lei exige. Essa mata em pé te dá direito a benefícios.</div>
+          <div class="gov-highlight" id="gi-highlight"><i class="bi bi-stars" style="margin-right:6px"></i>Você preserva 18 hectares de mata nativa, cerca de 8 a mais do que a lei exige. Essa mata em pé te dá direito a benefícios.</div>
           <button class="gov-btn" onclick="govStep(4)">Ver os benefícios a que tenho direito</button>
         </div>
       </div>
@@ -1708,7 +1709,7 @@ body.high-contrast .perfil-chip.active{background:#000;border-color:#000}
           <button class="gov-back" onclick="govStep(3)"><i class="bi bi-arrow-left"></i> Voltar aos dados do imóvel</button>
           <h3>Seus benefícios</h3>
           <p class="gov-sub">Com base no seu imóvel, em Acaiaca, você tem direito a:</p>
-          <div class="gov-benef-list">
+          <div class="gov-benef-list" id="gb-list">
             <div class="gov-benef-card"><div class="gov-bi"><i class="bi bi-arrow-left-right"></i></div><div><h6>Floresta que vira renda</h6><p>Você tem cerca de 8 hectares de mata além do mínimo. Esse excedente pode virar Cota de Reserva Ambiental e ser vendido para quem precisa compensar.</p><span class="gov-step1">Primeiro passo: peça ao órgão ambiental a análise do seu excedente de mata.</span></div></div>
             <div class="gov-benef-card"><div class="gov-bi"><i class="bi bi-cash-coin"></i></div><div><h6>Receber para conservar</h6><p>Por manter 18 hectares de mata e proteger a nascente, você pode receber por conservar, através do Pagamento por Serviços Ambientais.</p><span class="gov-step1">Primeiro passo: procure os programas de Pagamento por Serviços Ambientais do seu estado.</span></div></div>
             <div class="gov-benef-card"><div class="gov-bi"><i class="bi bi-receipt-cutoff"></i></div><div><h6>Imposto que você deixa de pagar</h6><p>Os 18 hectares de mata e as áreas de preservação ficam livres do Imposto Territorial Rural.</p><span class="gov-step1">Primeiro passo: declare essas áreas na sua declaração do Imposto Territorial Rural.</span></div></div>
@@ -5214,5 +5215,116 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <!-- ============================================== -->
-\n</body>
+\n<script>
+/* ═══ INTEGRACAO COM O BACKEND (com fallback offline) ═══ */
+/* A interface chama a API quando ela esta no ar. Se nao estiver, mantem os
+   dados embutidos e continua funcionando sozinha (essencial para a gravacao). */
+(function(){
+  var API_BASE = (new URLSearchParams(location.search).get('api')) || 'http://127.0.0.1:8000';
+  var conectada = false;
+
+  async function apiGet(path){
+    try{
+      var ctrl = new AbortController();
+      var t = setTimeout(function(){ ctrl.abort(); }, 3500);
+      var r = await fetch(API_BASE + path, { signal: ctrl.signal });
+      clearTimeout(t);
+      if(!r.ok) return null;
+      return await r.json();
+    }catch(e){ return null; }
+  }
+  async function apiPost(path, body){
+    try{
+      var ctrl = new AbortController();
+      var t = setTimeout(function(){ ctrl.abort(); }, 3500);
+      var r = await fetch(API_BASE + path, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body), signal: ctrl.signal });
+      clearTimeout(t);
+      if(!r.ok) return null;
+      return await r.json();
+    }catch(e){ return null; }
+  }
+
+  function setHtml(id, html){ var el = document.getElementById(id); if(el) el.innerHTML = html; }
+  function virg(v){ return String(v).replace('.', ','); }
+
+  var UFNOME = {MG:'Minas Gerais',SP:'São Paulo',PA:'Pará',MT:'Mato Grosso',AM:'Amazonas',RO:'Rondônia',GO:'Goiás',BA:'Bahia',RS:'Rio Grande do Sul',MS:'Mato Grosso do Sul'};
+
+  function renderImovel(d){
+    if(!d || !d.imovel) return;
+    var im = d.imovel;
+    setHtml('gi-nome', im.nome);
+    setHtml('gi-mun', im.municipio + ', ' + (UFNOME[im.uf] || im.uf));
+    setHtml('gi-area', im.area_ha + ' <small>hectares</small>');
+    setHtml('gi-mod', virg(im.modulos_fiscais) + ' <small>módulos fiscais (' + String(im.porte || '').toLowerCase() + ')</small>');
+    setHtml('gi-bioma', im.bioma);
+    setHtml('gi-rl', im.reserva_legal_exigida_percent + '% <small>cerca de ' + virg(im.reserva_legal_exigida_ha) + ' hectares</small>');
+    setHtml('gi-mata', im.mata_nativa_ha + ' <small>hectares</small>');
+    setHtml('gi-car', im.numero_cadastro);
+    var st = document.getElementById('gi-status');
+    if(st) st.innerHTML = '<i class="bi bi-check-circle-fill"></i> ' + im.situacao_cadastro;
+    var exc = Math.round(im.excedente_ha);
+    setHtml('gi-highlight', '<i class="bi bi-stars" style="margin-right:6px"></i>Você preserva ' + im.mata_nativa_ha + ' hectares de mata nativa, cerca de ' + exc + ' a mais do que a lei exige. Essa mata em pé te dá direito a benefícios.');
+  }
+
+  var BICON = { cra:'bi-arrow-left-right', psa:'bi-cash-coin', itr:'bi-receipt-cutoff', credito:'bi-bank', juridico:'bi-shield-check', carbono:'bi-cloud-check-fill', seguro:'bi-umbrella-fill', pronaf:'bi-tractor', valor:'bi-graph-up-arrow' };
+
+  function renderBeneficios(list){
+    if(!list || !list.length) return;
+    var el = document.getElementById('gb-list');
+    if(!el) return;
+    el.innerHTML = list.map(function(b){
+      var ic = BICON[b.id] || 'bi-star-fill';
+      return '<div class="gov-benef-card"><div class="gov-bi"><i class="bi ' + ic + '"></i></div><div>'
+        + '<h6>' + b.titulo + '</h6><p>' + b.descricao + '</p>'
+        + '<span class="gov-step1">Primeiro passo: ' + b.primeiro_passo + '</span>'
+        + (b.base_legal ? '<span style="display:block;margin-top:3px;font-size:.76rem;color:#888">Base legal: ' + b.base_legal + '</span>' : '')
+        + '</div></div>';
+    }).join('');
+  }
+
+  // O botao Entrar chama o backend de verdade (login + imovel + beneficios), com fallback.
+  window.govEntrar = async function(){
+    var btn = document.querySelector('#gov-2 .gov-btn');
+    var orig = btn ? btn.innerHTML : '';
+    if(conectada && btn){ btn.disabled = true; btn.innerHTML = '<i class="bi bi-arrow-repeat"></i> Consultando o Cadastro Ambiental Rural...'; }
+    if(conectada){
+      await apiPost('/api/login', { cpf: '123.456.789-09', senha: 'senhademonstracao' });
+      var im = await apiGet('/api/imovel');
+      var be = await apiGet('/api/beneficios');
+      if(im) renderImovel(im);
+      if(be) renderBeneficios(be);
+    }
+    if(btn){ btn.disabled = false; btn.innerHTML = orig; }
+    if(typeof govStep === 'function') govStep(3);
+  };
+
+  // Atualiza a base dos estados com os dados servidos pela API (mesmos dados, vindos do backend).
+  function aplicarEstados(lista){
+    if(!lista || !lista.length || typeof ED === 'undefined') return;
+    lista.forEach(function(e){
+      var uf = (e.uf || '').toLowerCase();
+      if(!uf) return;
+      ED[uf] = { n:e.nome, bio:e.bioma, rl:e.reserva_legal, mf:e.modulo_fiscal, pra:e.programa_regularizacao, orgao:e.orgao_ambiental, site:e.site_orgao, alerta:e.alerta, itens:e.itens };
+    });
+  }
+
+  function mostrarBadge(){
+    var b = document.getElementById('api-badge');
+    if(b) b.style.display = 'inline-flex';
+  }
+
+  async function initApi(){
+    var saude = await apiGet('/saude');
+    if(saude && saude.status === 'ok'){
+      conectada = true;
+      mostrarBadge();
+      aplicarEstados(await apiGet('/api/estados'));
+      var im = await apiGet('/api/imovel'); if(im) renderImovel(im);
+      var be = await apiGet('/api/beneficios'); if(be) renderBeneficios(be);
+    }
+  }
+  window.addEventListener('load', initApi);
+})();
+</script>
+</body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Glossário, Carteira Verde</title>
+<meta name="description" content="Glossário de siglas e termos da legislação ambiental rural: CAR, SICAR, APP, RL, PRA, PSA, CRA, MF, IBAMA, MMA, SFB, TC, ITR, CCIR."/>
+<meta name="theme-color" content="#1b5e33"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxYjVlMzMiLz48cGF0aCBkPSJNMzIgMTRjOCA2IDE0IDEyIDE0IDIyYTE0IDE0IDAgMCAxLTI4IDBjMC0xMCA2LTE2IDE0LTIyWiIgZmlsbD0iIzUyYzI3YSIvPjxwYXRoIGQ9Ik0zMiAyMHYyNiIgc3Ryb2tlPSIjMWI1ZTMzIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTMyIDMwYy00LTItOC0yLTExLTEgMiAzIDYgNSAxMSA0Wm0wIDhjNC0yIDgtMiAxMS0xLTIgMy02IDUtMTEgNFoiIGZpbGw9IiMxYjVlMzMiLz48L3N2Zz4="/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<style>
+:root{--g:#1b5e33;--gm:#2e8b50;--gl:#52c27a;--gp:#e8f5ee;--gd:#e0f2e9;--bg:#f5f4f1;--brd:#e2dfd7;--txt:#16180f;--txs:#66665c;--w:#fff;--rl:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--txt);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{text-decoration:none;color:inherit}
+.gl-header{background:var(--w);border-bottom:1.5px solid var(--brd);position:sticky;top:0;z-index:10}
+.gl-header-in{max-width:1100px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.gl-logo{display:flex;align-items:center;gap:9px;font-weight:900;color:var(--g);font-size:1.1rem}
+.gl-logo-ic{width:32px;height:32px;background:var(--g);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
+.gl-logo span{color:var(--gm)}
+.gl-back{display:inline-flex;align-items:center;gap:7px;font-size:.86rem;font-weight:700;color:var(--g);background:var(--gp);padding:8px 15px;border-radius:9px;transition:background .15s}
+.gl-back:hover{background:var(--gd)}
+.gl-main{max-width:1100px;margin:0 auto;padding:42px 24px 60px}
+.gl-lbl{font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--gm);margin-bottom:8px}
+.gl-h1{font-size:2rem;font-weight:800;color:var(--txt);letter-spacing:-.02em;margin-bottom:10px}
+.gl-intro{font-size:1rem;color:var(--txs);max-width:640px;margin-bottom:32px}
+#siglas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.gl-card{border:1.5px solid var(--brd);border-radius:var(--rl);padding:18px;background:var(--w);display:flex;flex-direction:column;gap:8px}
+.gl-top{display:flex;align-items:center;gap:10px}
+.gl-badge{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;flex-shrink:0}
+.gl-name{font-size:.88rem;color:var(--txt);display:block}
+.gl-abbr{font-size:.7rem;color:var(--gm);font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.gl-desc{font-size:.81rem;color:var(--txs);line-height:1.6;margin:0}
+.gl-foot{max-width:1100px;margin:0 auto;padding:26px 24px;border-top:1.5px solid var(--brd);text-align:center;color:var(--txs);font-size:.83rem}
+.gl-foot a{color:var(--g);font-weight:700}
+@media(max-width:600px){.gl-h1{font-size:1.6rem}.gl-main{padding:30px 18px 50px}}
+</style>
+</head>
+<body>
+<header class="gl-header">
+  <div class="gl-header-in">
+    <a href="index.html" class="gl-logo"><span class="gl-logo-ic"><i class="bi bi-tree-fill"></i></span>Carteira<span>&nbsp;Verde</span></a>
+    <a href="index.html" class="gl-back"><i class="bi bi-arrow-left"></i> Voltar</a>
+  </div>
+</header>
+<main class="gl-main">
+  <p class="gl-lbl">Glossário</p>
+  <h1 class="gl-h1">Siglas e termos importantes</h1>
+  <p class="gl-intro">As siglas e termos da legislação ambiental rural, explicados em linguagem simples. Sem juridiquês.</p>
+  <div id="siglas-grid"></div>
+</main>
+<footer class="gl-foot">Carteira Verde, a lei ambiental rural explicada. <a href="index.html">Voltar para o início</a></footer>
+<script>
+var SIGLAS=[
+  {s:'CAR',c:'#e8f5ee',ic:'#1b5e33',n:'Cadastro Ambiental Rural',d:'Registro eletrônico obrigatório para todos os imóveis rurais do Brasil, feito no SICAR. Comprova a vegetação nativa, APPs e Reserva Legal.'},
+  {s:'SICAR',c:'#e8f0fe',ic:'#1a6ed8',n:'Sistema de Cadastro Ambiental Rural',d:'Sistema informatizado do governo federal onde o CAR é inscrito, consultado e monitorado. Acesse em car.gov.br.'},
+  {s:'APP',c:'#e0f4fb',ic:'#0e7aa8',n:'Área de Preservação Permanente',d:'Faixa de vegetação às margens de rios, nascentes, lagos e encostas que deve ser preservada por lei, independente de ser propriedade privada.'},
+  {s:'RL',c:'#fdf3e3',ic:'#7a4f1a',n:'Reserva Legal',d:'Área dentro da propriedade rural com cobertura de vegetação nativa obrigatória. Percentual varia de 20% a 80% conforme o bioma.'},
+  {s:'PRA',c:'#f0ebfe',ic:'#7c4de8',n:'Programa de Regularização Ambiental',d:'Programa que permite regularizar desmatamentos anteriores a 22/07/2008 sem pagar multa, mediante assinatura de Termo de Compromisso.'},
+  {s:'PSA',c:'#e8f5ee',ic:'#1b5e33',n:'Pagamento por Serviços Ambientais',d:'Remuneração paga ao proprietário que mantém e recupera vegetação nativa. Imóvel com CAR ativo é requisito básico para acesso.'},
+  {s:'CRA',c:'#fff8ed',ic:'#c8932a',n:'Cota de Reserva Ambiental',d:'Título nominativo que representa área com vegetação nativa, podendo ser negociado para compensar déficit de Reserva Legal em outro imóvel.'},
+  {s:'MF',c:'#f5f4f1',ic:'#66665c',n:'Módulo Fiscal',d:'Unidade de medida agrária que varia por município (geralmente de 5 a 110 ha). Define o tamanho da propriedade e, portanto, as exigências de APP e RL.'},
+  {s:'IBAMA',c:'#e8f5ee',ic:'#1b5e33',n:'Instituto Brasileiro do Meio Ambiente',d:'Órgão federal de fiscalização ambiental. Responsável por aplicar multas e embargos em propriedades rurais que descumprem a legislação ambiental.'},
+  {s:'MMA',c:'#e8f0fe',ic:'#1a6ed8',n:'Ministério do Meio Ambiente',d:'Ministério federal que supervisiona a política ambiental, o Código Florestal e o funcionamento do SICAR nacional.'},
+  {s:'SFB',c:'#e8f5ee',ic:'#2e8b50',n:'Serviço Florestal Brasileiro',d:'Órgão vinculado ao MMA responsável pelo SICAR e pela divulgação dos dados públicos do Cadastro Ambiental Rural.'},
+  {s:'TC',c:'#fdf3e3',ic:'#c8932a',n:'Termo de Compromisso',d:'Acordo assinado entre o proprietário rural e o órgão ambiental estadual no âmbito do PRA. Suspende as multas e formaliza o plano de recuperação ambiental.'},
+  {s:'ITR',c:'#fff8ed',ic:'#c8932a',n:'Imposto Territorial Rural',d:'Imposto federal cobrado anualmente sobre imóveis rurais. A alíquota varia conforme o tamanho e o grau de utilização da propriedade. Imóvel irregular ou sem CAR pode perder isenções e benefícios fiscais do ITR.'},
+  {s:'CCIR',c:'#e8f0fe',ic:'#1a6ed8',n:'Certificado de Cadastro de Imóvel Rural',d:'Documento emitido pelo INCRA que comprova o cadastro do imóvel rural. É exigido em transações como venda, herança, arrendamento e financiamento. Precisa estar em dia para que o CAR tenha validade plena em cartórios.'},
+];
+(function(){
+  var g=document.getElementById('siglas-grid'); if(!g) return;
+  g.innerHTML=SIGLAS.map(function(s){
+    return '<div class="gl-card"><div class="gl-top"><div class="gl-badge" style="background:'+s.c+';color:'+s.ic+'">'+s.s+'</div>'
+      +'<div><strong class="gl-name">'+s.n+'</strong><span class="gl-abbr">'+s.s+'</span></div></div>'
+      +'<p class="gl-desc">'+s.d+'</p></div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
